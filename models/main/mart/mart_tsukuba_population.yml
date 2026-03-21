@@ -1,0 +1,67 @@
+version: 2
+
+models:
+  - name: mart_tsukuba_population
+    description: つくば市の全期間人口データを統合したマートテーブル
+    access: public
+    config:
+      contract:
+        enforced: true
+    meta:
+      title: "つくば市人口統計"
+      tags: ["人口", "つくば市", "統計"]
+      license: "CC BY 4.0"
+      license_url: "https://creativecommons.org/licenses/by/4.0/"
+      source_url: "https://www.city.tsukuba.lg.jp/"
+      published: true
+    columns:
+      - name: lg_code
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        meta:
+          title: 全国地方公共団体コード
+      - name: area_code
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        meta:
+          title: 地域を識別するコード
+      - name: lg_name
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        meta:
+          title: 地方公共団体の名称
+      - name: reference_date
+        data_type: DATE
+        constraints:
+          - type: not_null
+        meta:
+          title: データの調査年月日
+      - name: area_name
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        meta:
+          title: 地域の名称
+      - name: sex
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        meta:
+          title: 性別
+          description: male/female
+      - name: age_group
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        meta:
+          title: 年齢層
+          description: 0-4, 5-9, ..., 85+
+      - name: population
+        data_type: BIGINT
+        constraints:
+          - type: not_null
+        meta:
+          title: 該当性別・年齢層の人口
