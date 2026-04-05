@@ -13,6 +13,8 @@ url = "~/.local/share/fdl"
 public_url = "http://localhost:4001"
 
 [meta]
+license = "CC BY 4.0"
+license_url = "https://creativecommons.org/licenses/by/4.0/"
 title = "つくば市オープンデータ"
 description = "つくば市が公開している統計データ"
 cover = "🏙️"

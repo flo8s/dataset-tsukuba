@@ -10,8 +10,6 @@ models:
     meta:
       title: "つくば市人口統計"
       tags: ["人口", "つくば市", "統計"]
-      license: "CC BY 4.0"
-      license_url: "https://creativecommons.org/licenses/by/4.0/"
       source_url: "https://www.city.tsukuba.lg.jp/"
       published: true
     columns:
