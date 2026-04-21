@@ -85,6 +85,15 @@ wheels = [
 ]
 
 [[package]]
+name = "cachetools"
+version = "7.0.6"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/76/7b/1755ed2c6bfabd1d98b37ae73152f8dcf94aa40fee119d163c19ed484704/cachetools-7.0.6.tar.gz", hash = "sha256:e5d524d36d65703a87243a26ff08ad84f73352adbeafb1cde81e207b456aaf24", size = 37526, upload-time = "2026-04-20T19:02:23.289Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/fe/c4/cf76242a5da1410917107ff14551764aa405a5fd10cd10cf9a5ca8fa77f4/cachetools-7.0.6-py3-none-any.whl", hash = "sha256:4e94956cfdd3086f12042cdd29318f5ced3893014f7d0d059bf3ead3f85b7f8b", size = 13976, upload-time = "2026-04-20T19:02:21.187Z" },
+]
+
+[[package]]
 name = "certifi"
 version = "2026.2.25"
 source = { registry = "https://pypi.org/simple" }
@@ -190,12 +199,19 @@ dependencies = [
     { name = "frozen-ducklake" },
 ]
 
+[package.optional-dependencies]
+convert = [
+    { name = "normalize-japanese-addresses" },
+]
+
 [package.metadata]
 requires-dist = [
     { name = "dbt-core", specifier = ">=1.11.2" },
     { name = "dbt-duckdb", specifier = ">=1.10.0" },
     { name = "frozen-ducklake", specifier = ">=0.5.0" },
+    { name = "normalize-japanese-addresses", marker = "extra == 'convert'" },
 ]
+provides-extras = ["convert"]
 
 [[package]]
 name = "dbt-adapters"
@@ -469,6 +485,15 @@ wheels = [
 ]
 
 [[package]]
+name = "kanjize"
+version = "1.6.1"
+source = { registry = "https://pypi.org/simple" }
+sdist = { url = "https://files.pythonhosted.org/packages/b1/5d/08e4d0c98065cba564d62782fb6d17a71879b1ff1b1d70521c4a143f7810/kanjize-1.6.1.tar.gz", hash = "sha256:5e96a2df8af21f55e7e2b8f1042efb830a171a5cb9046f6239e89e03622b9756", size = 6558, upload-time = "2025-06-14T13:50:11.71Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/c4/fb/6c4f91660a3b7e9e1d9d0a41e8976af7fb717449532f56d1b28a560dc9e5/kanjize-1.6.1-py3-none-any.whl", hash = "sha256:4f0318e94a947e0613ac68fba8c9822ff7bfd138ac58a68caa849879bb532f26", size = 6821, upload-time = "2025-06-14T13:50:17.07Z" },
+]
+
+[[package]]
 name = "leather"
 version = "0.4.1"
 source = { registry = "https://pypi.org/simple" }
@@ -618,6 +643,20 @@ source = { registry = "https://pypi.org/simple" }
 sdist = { url = "https://files.pythonhosted.org/packages/6a/51/63fe664f3908c97be9d2e4f1158eb633317598cfa6e1fc14af5383f17512/networkx-3.6.1.tar.gz", hash = "sha256:26b7c357accc0c8cde558ad486283728b65b6a95d85ee1cd66bafab4c8168509", size = 2517025, upload-time = "2025-12-08T17:02:39.908Z" }
 wheels = [
     { url = "https://files.pythonhosted.org/packages/9e/c9/b2622292ea83fbb4ec318f5b9ab867d0a28ab43c5717bb85b0a5f6b3b0a4/networkx-3.6.1-py3-none-any.whl", hash = "sha256:d47fbf302e7d9cbbb9e2555a0d267983d2aa476bac30e90dfbe5669bd57f3762", size = 2068504, upload-time = "2025-12-08T17:02:38.159Z" },
+]
+
+[[package]]
+name = "normalize-japanese-addresses"
+version = "0.0.9"
+source = { registry = "https://pypi.org/simple" }
+dependencies = [
+    { name = "cachetools" },
+    { name = "kanjize" },
+    { name = "requests" },
+]
+sdist = { url = "https://files.pythonhosted.org/packages/37/73/7f08a3af8acc4beb76d68e4ac569d96a5e153de6f8a479f568afa4aeda6c/normalize-japanese-addresses-0.0.9.tar.gz", hash = "sha256:bdbea2112c016253b4dd178dfc893623f7a7d1dde488e904f6c2d1480f2d4297", size = 16572, upload-time = "2024-03-02T02:32:39.014Z" }
+wheels = [
+    { url = "https://files.pythonhosted.org/packages/45/13/2a3857bb4609568ed038146bf46718d7b6c4cd942a5e629a8cba234988a6/normalize_japanese_addresses-0.0.9-py3-none-any.whl", hash = "sha256:c70a3b45dbc1c9c6b4701d4af22086d649903f76d9f9aeb0a3afae3645fb35e9", size = 17182, upload-time = "2024-03-02T02:32:37.052Z" },
 ]
 
 [[package]]
