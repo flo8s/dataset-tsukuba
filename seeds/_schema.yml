@@ -1,0 +1,46 @@
+version: 2
+
+seeds:
+  - name: tsukuba_emergency_shelter_20241201
+    description: つくば市指定緊急避難場所（2024年12月時点、ODF形式）
+    config:
+      column_types:
+        全国地方公共団体コード: VARCHAR
+        ID: VARCHAR
+        名称: VARCHAR
+        名称_カナ: VARCHAR
+        名称_英字: VARCHAR
+        所在地_全国地方公共団体コード: VARCHAR
+        町字ID: VARCHAR
+        所在地_連結表記: VARCHAR
+        所在地_都道府県: VARCHAR
+        所在地_市区町村: VARCHAR
+        所在地_町字: VARCHAR
+        所在地_番地以下: VARCHAR
+        建物名等(方書): VARCHAR
+        緯度: DOUBLE
+        経度: DOUBLE
+        標高: DOUBLE
+        電話番号: VARCHAR
+        内線番号: VARCHAR
+        連絡先メールアドレス: VARCHAR
+        連絡先FormURL: VARCHAR
+        連絡先備考（その他、SNSなど）: VARCHAR
+        郵便番号: VARCHAR
+        市区町村コード: VARCHAR
+        地方公共団体名: VARCHAR
+        災害種別_洪水: VARCHAR
+        災害種別_崖崩れ、土石流及び地滑り: VARCHAR
+        災害種別_高潮: VARCHAR
+        災害種別_地震: VARCHAR
+        災害種別_津波: VARCHAR
+        災害種別_大規模な火事: VARCHAR
+        災害種別_内水氾濫: VARCHAR
+        災害種別_火山現象: VARCHAR
+        指定避難所との重複: VARCHAR
+        想定収容人数: BIGINT
+        対象となる町会・自治会: VARCHAR
+        URL: VARCHAR
+        画像: VARCHAR
+        画像_ライセンス: VARCHAR
+        備考: VARCHAR

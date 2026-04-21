@@ -40,3 +40,6 @@ models:
   - name: stg_tsukuba_population_20251001
     description: つくば市人口データ（2025年10月1日時点）をUNPIVOTして正規化
     columns: *stg_columns
+
+  - name: stg_tsukuba_emergency_shelter_20241201
+    description: つくば市指定緊急避難場所（2024年12月時点）をカラム英語化・フラグBOOLEAN化して正規化

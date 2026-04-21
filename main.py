@@ -10,6 +10,10 @@ def main():
     if not result.success:
         raise SystemExit("dbt deps failed")
 
+    result = dbt.invoke(["seed"])
+    if not result.success:
+        raise SystemExit("dbt seed failed")
+
     result = dbt.invoke(["run"])
     if not result.success:
         raise SystemExit("dbt run failed")

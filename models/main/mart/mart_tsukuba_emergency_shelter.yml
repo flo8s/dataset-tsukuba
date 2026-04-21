@@ -1,0 +1,165 @@
+version: 2
+
+models:
+  - name: mart_tsukuba_emergency_shelter
+    description: つくば市の指定緊急避難場所を自治体標準オープンデータセット(ODF)形式で提供するマートテーブル
+    access: public
+    config:
+      contract:
+        enforced: true
+    meta:
+      title: "つくば市 指定緊急避難場所"
+      tags: ["防災", "指定緊急避難場所", "つくば市"]
+      source_url: "https://www.city.tsukuba.lg.jp/soshikikarasagasu/shichokoshitsukikikanrika/gyomuannai/1/2/1000608.html"
+      published: true
+    columns:
+      - name: lg_code
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        meta:
+          title: 全国地方公共団体コード
+      - name: shelter_id
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        meta:
+          title: 避難場所ID
+      - name: name
+        data_type: VARCHAR
+        constraints:
+          - type: not_null
+        meta:
+          title: 名称
+      - name: name_kana
+        data_type: VARCHAR
+        meta:
+          title: 名称（カナ）
+      - name: name_en
+        data_type: VARCHAR
+        meta:
+          title: 名称（英字）
+      - name: address
+        data_type: VARCHAR
+        meta:
+          title: 所在地（連結表記）
+      - name: pref
+        data_type: VARCHAR
+        meta:
+          title: 都道府県
+      - name: city
+        data_type: VARCHAR
+        meta:
+          title: 市区町村
+      - name: town
+        data_type: VARCHAR
+        meta:
+          title: 町字
+      - name: addr_detail
+        data_type: VARCHAR
+        meta:
+          title: 番地以下
+      - name: building
+        data_type: VARCHAR
+        meta:
+          title: 建物名等（方書）
+      - name: latitude
+        data_type: DOUBLE
+        meta:
+          title: 緯度
+      - name: longitude
+        data_type: DOUBLE
+        meta:
+          title: 経度
+      - name: elevation
+        data_type: DOUBLE
+        meta:
+          title: 標高
+      - name: phone
+        data_type: VARCHAR
+        meta:
+          title: 電話番号
+      - name: phone_ext
+        data_type: VARCHAR
+        meta:
+          title: 内線番号
+      - name: email
+        data_type: VARCHAR
+        meta:
+          title: 連絡先メールアドレス
+      - name: form_url
+        data_type: VARCHAR
+        meta:
+          title: 連絡先FormURL
+      - name: contact_note
+        data_type: VARCHAR
+        meta:
+          title: 連絡先備考
+      - name: postal_code
+        data_type: VARCHAR
+        meta:
+          title: 郵便番号
+      - name: lg_name
+        data_type: VARCHAR
+        meta:
+          title: 地方公共団体名
+      - name: flood
+        data_type: BOOLEAN
+        meta:
+          title: 災害種別_洪水
+      - name: landslide
+        data_type: BOOLEAN
+        meta:
+          title: 災害種別_崖崩れ・土石流・地滑り
+      - name: storm_surge
+        data_type: BOOLEAN
+        meta:
+          title: 災害種別_高潮
+      - name: earthquake
+        data_type: BOOLEAN
+        meta:
+          title: 災害種別_地震
+      - name: tsunami
+        data_type: BOOLEAN
+        meta:
+          title: 災害種別_津波
+      - name: large_fire
+        data_type: BOOLEAN
+        meta:
+          title: 災害種別_大規模な火事
+      - name: inland_flooding
+        data_type: BOOLEAN
+        meta:
+          title: 災害種別_内水氾濫
+      - name: volcanic
+        data_type: BOOLEAN
+        meta:
+          title: 災害種別_火山現象
+      - name: duplicated_with_shelter
+        data_type: VARCHAR
+        meta:
+          title: 指定避難所との重複
+      - name: capacity
+        data_type: BIGINT
+        meta:
+          title: 想定収容人数
+      - name: target_areas
+        data_type: VARCHAR
+        meta:
+          title: 対象となる町会・自治会
+      - name: url
+        data_type: VARCHAR
+        meta:
+          title: URL
+      - name: image_url
+        data_type: VARCHAR
+        meta:
+          title: 画像URL
+      - name: image_license
+        data_type: VARCHAR
+        meta:
+          title: 画像ライセンス
+      - name: note
+        data_type: VARCHAR
+        meta:
+          title: 備考

@@ -116,3 +116,18 @@ models:
   - name: raw_tsukuba_population_20251001
     description: つくば市人口データ（2025年10月1日時点）の生データ
     columns: *raw_columns
+
+  - name: raw_tsukuba_emergency_shelter_official_20241201
+    description: つくば市公式サイトが公開している指定緊急避難場所CSV（2024年12月時点、4列）の生データ
+    columns:
+      - name: "no"
+        description: 施設番号
+      - name: name
+        description: 施設名
+      - name: address
+        description: 所在地
+      - name: note
+        description: 備考
+
+  - name: raw_tsukuba_emergency_shelter_20241201
+    description: つくば市指定緊急避難場所（2024年12月時点、ODF形式に整備済み）の生データ
