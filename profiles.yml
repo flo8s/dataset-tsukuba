@@ -3,29 +3,41 @@ tsukuba:
   outputs:
     default:
       type: duckdb
-      path: "md:?motherduck_token={{ env_var('MOTHERDUCK_TOKEN', '') }}"
-      database: tsukuba
-      schema: main
+      path: ":memory:"
       threads: 4
       extensions:
         - httpfs
-        - motherduck
+        - postgres
         - ducklake
+        - spatial
+      secrets:
+        - type: r2
+          key_id: "{{ env_var('QUERIA_S3_ACCESS_KEY_ID', '') }}"
+          secret: "{{ env_var('QUERIA_S3_SECRET_ACCESS_KEY', '') }}"
+          account_id: "{{ env_var('CF_ACCOUNT_ID', '') }}"
       attach:
-        - path: "md:tsukuba"
+        - path: "ducklake:postgres:{{ env_var('NEON_DATABASE_URL', '') }}"
           alias: tsukuba
-          is_ducklake: true
+          options:
+            data_path: "r2://{{ env_var('QUERIA_S3_BUCKET', '') }}/tsukuba/ducklake.duckdb.files/"
+            meta_schema: "tsukuba"
     local:
       type: duckdb
-      path: "md:?motherduck_token={{ env_var('MOTHERDUCK_TOKEN', '') }}"
-      database: tsukuba
-      schema: main
+      path: ":memory:"
       threads: 4
       extensions:
         - httpfs
-        - motherduck
+        - postgres
         - ducklake
+        - spatial
+      secrets:
+        - type: r2
+          key_id: "{{ env_var('QUERIA_S3_ACCESS_KEY_ID', '') }}"
+          secret: "{{ env_var('QUERIA_S3_SECRET_ACCESS_KEY', '') }}"
+          account_id: "{{ env_var('CF_ACCOUNT_ID', '') }}"
       attach:
-        - path: "md:dev_tsukuba"
+        - path: "ducklake:postgres:{{ env_var('NEON_DATABASE_URL', '') }}"
           alias: tsukuba
-          is_ducklake: true
+          options:
+            data_path: "r2://{{ env_var('QUERIA_DEV_S3_BUCKET', 'queria-dev') }}/tsukuba/ducklake.duckdb.files/"
+            meta_schema: "dev_tsukuba"
