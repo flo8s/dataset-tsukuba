@@ -2,25 +2,7 @@
 name = "dataset-tsukuba"
 version = "0.1.0"
 requires-python = ">=3.13"
-dependencies = [
-    "dbt-core>=1.11.2",
-    "dbt-duckdb>=1.10.0",
-    "duckdb>=1.5.0,<1.5.3",
-    "boto3>=1.35",
-]
+dependencies = ["frozen-ducklake>=0.10.2,<0.11", "dbt-core>=1.11.2", "dbt-duckdb>=1.10.0"]
 
 [project.optional-dependencies]
 convert = ["normalize-japanese-addresses"]
-
-[tool.queria]
-name = "tsukuba"
-title = "つくば市オープンデータ"
-description = "つくば市が公開している統計データ"
-cover = "🏙️"
-tags = ["オープンデータ", "つくば市"]
-license = "CC BY 4.0"
-license_url = "https://creativecommons.org/licenses/by/4.0/"
-repository_url = "https://github.com/flo8s/dataset-tsukuba"
-
-[tool.queria.schemas.main]
-title = "メイン"
