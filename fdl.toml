@@ -19,7 +19,7 @@ title = "つくば市オープンデータ"
 description = "つくば市が公開している統計データ"
 cover = "🏙️"
 tags = ['オープンデータ', 'つくば市']
-repository_url = "https://github.com/flo8s/dataset-tsukuba"
+repository_url = "https://github.com/queria-io/dataset-tsukuba"
 
 [meta.schemas]
 [meta.schemas.main]
