@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: mart_tsukuba_emergency_shelter
-    description: つくば市の指定緊急避難場所を自治体標準オープンデータセット(ODF)形式で提供するマートテーブル
+    description: つくば市の指定緊急避難場所を自治体標準オープンデータセット形式で提供するマートテーブル。各施設の名称・住所・緯度経度・標高・収容人数に加え、洪水・土砂災害・地震・津波など災害種別ごとの対応可否を収録する。
     access: public
     config:
       contract:
