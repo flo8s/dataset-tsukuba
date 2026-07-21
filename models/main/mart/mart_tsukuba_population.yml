@@ -2,7 +2,7 @@ version: 2
 
 models:
   - name: mart_tsukuba_population
-    description: つくば市の全期間人口データを統合したマートテーブル
+    description: つくば市が公開する人口統計を全期間分統合したマートテーブル。基準日ごとに、地区、性別、年齢階級別の人口を収録し、市全体から地区単位までの人口推移を追える。
     access: public
     config:
       contract:
