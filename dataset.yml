@@ -1,0 +1,51 @@
+spec_version: "0.1"
+name: tsukuba
+title: つくば市オープンデータ
+description: つくば市が公開している統計データ。地区別・性別・年齢階級別の人口と、指定緊急避難場所の一覧を収録する
+keywords:
+  - オープンデータ
+  - つくば市
+  - 人口
+  - 避難場所
+homepage: https://github.com/queria-io/dataset-tsukuba
+language: ja
+
+licenses:
+  - CC-BY-4.0
+
+sources:
+  - title: つくば市オープンデータ
+    path: https://www.city.tsukuba.lg.jp/
+
+contributors:
+  - title: つくば市
+    path: https://www.city.tsukuba.lg.jp/
+    roles: [rightsHolder]
+
+temporal_coverage: { start: "2024-04-01", end: null }
+spatial_coverage: [JP]
+update_frequency: irregular
+cover: 🏙️
+
+ai_context:
+  instructions: |
+    つくば市の地区単位の人口構成や、市内の避難場所の分布を調べるのに使う。
+    対象はつくば市のみで、全国の市区町村を比べる用途には使えない。
+    人口は1行が「地区 × 性別 × 年齢階級 × 調査年月日」で、合計行は無いので
+    地区の総人口を出すには合計する。地区は303あり、市全体の行は含まれない。
+    収録している時点は2024年4月1日以降の複数時点で、時系列としては短い。
+    年齢階級は 0-4 から 85+ までの5歳刻み。
+    避難場所は市の公式 CSV を自治体標準オープンデータセット形式に整形したもので、
+    緯度経度は住所からのジオコーディングで補完している（元データに座標が無いため、
+    精度は住所レベル）。
+    国土地理院の全国データ（gsi）にも同じ施設が入っているが、指定時点も項目も別なので
+    件数は一致しない。
+  synonyms: [つくば市, 地区別人口, 避難場所]
+  examples:
+    - つくば市の地区別の人口を出したい
+    - 年齢階級別の人口構成を地区ごとに比べたい
+    - つくば市の指定緊急避難場所を地図に出したい
+
+schemas:
+  - name: main
+    title: メイン

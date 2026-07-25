@@ -1,0 +1,30 @@
+schema: main
+name: mart_tsukuba_population
+title: つくば市人口統計
+description: つくば市が公開する人口統計を全期間分統合したマートテーブル。基準日ごとに、地区、性別、年齢階級別の人口を収録し、市全体から地区単位までの人口推移を追える。
+keywords:
+  - 人口
+  - つくば市
+  - 統計
+published: true
+sources:
+  - path: https://www.city.tsukuba.lg.jp/
+fields:
+  - name: lg_code
+    title: 全国地方公共団体コード
+  - name: area_code
+    title: 地域を識別するコード
+  - name: lg_name
+    title: 地方公共団体の名称
+  - name: reference_date
+    title: データの調査年月日
+  - name: area_name
+    title: 地域の名称
+  - name: sex
+    title: 性別
+    description: male/female
+  - name: age_group
+    title: 年齢層
+    description: 0-4, 5-9, ..., 85+
+  - name: population
+    title: 該当性別・年齢層の人口
