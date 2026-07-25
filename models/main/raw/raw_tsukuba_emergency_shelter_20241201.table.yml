@@ -1,0 +1,4 @@
+schema: main
+name: raw_tsukuba_emergency_shelter_20241201
+description: つくば市指定緊急避難場所（2024年12月時点、ODF形式に整備済み）の生データ
+published: false
