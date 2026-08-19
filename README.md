@@ -24,6 +24,18 @@
 - flood / landslide / storm_surge / earthquake / tsunami / large_fire / inland_flooding / volcanic: 災害種別の対応フラグ
 - url: 出典ページ URL
 
+### 取得元と件数
+
+取得元は市の公式ページに置かれた CSV 1 本で、`sources` にページと CSV の両方を挙げています。
+
+- CSV: https://www.city.tsukuba.lg.jp/material/files/group/4/202412hinannbasyo.csv
+- 時点: 2024 年 12 月
+- 件数: 11 件（No.1〜11）。CSV は 4 列で、ODF 形式の 39 列へ整形しています
+
+`mart_tsukuba_emergency_shelter` の行数は、この CSV の件数と一致します。件数を根拠に使うときは、
+つくば市の指定避難所や、国土地理院の全国データ（`gsi`）に含まれる同名の施設と混ぜないでください。
+指定の趣旨も収録項目も別で、件数は一致しません。
+
 ### データ更新手順
 
 公式 CSV が更新されたら、`scripts/convert_shelter.py` で seeds を再生成します。
