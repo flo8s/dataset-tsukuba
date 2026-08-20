@@ -1,6 +1,6 @@
 schema: main
 name: raw_tsukuba_emergency_shelter_official_20241201
-description: つくば市公式サイトが公開している指定緊急避難場所CSV（2024年12月時点、4列）の生データ
+description: つくば市公式サイトが公開している指定緊急避難場所CSV（https://www.city.tsukuba.lg.jp/material/files/group/4/202412hinannbasyo.csv 、2024年12月時点、11件・4列）の生データ
 published: false
 fields:
   - name: 'no'

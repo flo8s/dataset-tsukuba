@@ -1,7 +1,7 @@
 schema: main
 name: mart_tsukuba_emergency_shelter
 title: つくば市 指定緊急避難場所
-description: つくば市の指定緊急避難場所を自治体標準オープンデータセット形式で提供するマートテーブル。各施設の名称・住所・緯度経度・標高・収容人数に加え、洪水・土砂災害・地震・津波など災害種別ごとの対応可否を収録する。
+description: つくば市の指定緊急避難場所を自治体標準オープンデータセット形式で提供するマートテーブル。各施設の名称・住所・緯度経度・標高・収容人数に加え、洪水・土砂災害・地震・津波など災害種別ごとの対応可否を収録する。収録するのはつくば市が公開する指定緊急避難場所 CSV（2024年12月時点）の全 11 件で、同市の指定避難所や、国土地理院の全国データに含まれる同名の施設とは対象も件数も異なる。
 keywords:
   - 防災
   - 指定緊急避難場所
@@ -9,6 +9,7 @@ keywords:
 published: true
 sources:
   - path: https://www.city.tsukuba.lg.jp/soshikikarasagasu/shichokoshitsukikikanrika/gyomuannai/1/2/1000608.html
+  - path: https://www.city.tsukuba.lg.jp/material/files/group/4/202412hinannbasyo.csv
 fields:
   - name: lg_code
     title: 全国地方公共団体コード
