@@ -1,6 +1,6 @@
 schema: main
-name: stg_tsukuba_population_20241001
-description: つくば市人口データ（2024年10月1日時点）をUNPIVOTして正規化
+name: stg_tsukuba_population
+description: 地域・年齢別人口を UNPIVOT して性別・年齢階級を行に開いたもの
 published: false
 fields:
   - name: lg_code
