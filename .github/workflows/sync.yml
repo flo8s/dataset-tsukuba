@@ -5,6 +5,10 @@ on:
     branches: [main]
     paths-ignore:
       - "*.md"
+  schedule:
+    # 毎月5日 05:00 JST。上流の公開は4月・5月・10月の年3回で、
+    # 週次にすると年間およそ50回が空振りになる (それでも毎回スナップショットが増える)
+    - cron: "0 20 4 * *"
   workflow_dispatch:
 
 concurrency:

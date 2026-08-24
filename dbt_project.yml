@@ -14,6 +14,13 @@ clean-targets:
   - "target"
   - "dbt_packages"
 
+# 時点ごとに分かれていた人口モデルを1本に畳んだときの後始末。
+# モデルを消しても DuckLake のテーブルは残り、2024〜2025年だけを持つ
+# raw_/stg_ が引ける状態で居座るため、明示的に落とす。
+# **本番の sync が1回通ったら、このブロックごと消してよい。**
+on-run-start:
+  - "{{ drop_retired_population_snapshots() }}"
+
 models:
   tsukuba:
     +database: tsukuba
