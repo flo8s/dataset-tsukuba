@@ -10,6 +10,11 @@
    引き先が duckdb_tables() / duckdb_views() なのは、DuckLake の information_schema が
    カタログを跨いでは見えないため。
 
+   **DROP はデータベース名まで修飾する。** プロファイルの `path` が `:memory:` なので
+   接続の既定データベースは `memory` で、DuckLake は別名で ATTACH されている。
+   修飾しないと `IF EXISTS` が既定データベース側で空振りし、エラーも出さずに
+   1件も落ちない。落とす先は探した先と同じ database_name を使う。
+
    **本番の sync が1回通ったら、この macro と dbt_project.yml の on-run-start を
    まとめて消してよい。** #}
 {% macro drop_retired_population_snapshots() %}
@@ -17,17 +22,18 @@
 
   {% set pattern = '^(raw|stg)_tsukuba_population_[0-9]{8}$' %}
   {% set found = run_query(
-      "SELECT table_name AS name, 'TABLE' AS kind FROM duckdb_tables()"
+      "SELECT database_name, table_name AS name, 'TABLE' AS kind FROM duckdb_tables()"
       ~ "  WHERE database_name = 'tsukuba' AND schema_name = 'main'"
       ~ "    AND regexp_matches(table_name, '" ~ pattern ~ "')"
       ~ " UNION ALL "
-      ~ "SELECT view_name, 'VIEW' FROM duckdb_views()"
+      ~ "SELECT database_name, view_name, 'VIEW' FROM duckdb_views()"
       ~ "  WHERE database_name = 'tsukuba' AND schema_name = 'main'"
       ~ "    AND regexp_matches(view_name, '" ~ pattern ~ "')"
   ) %}
 
   {% for row in found.rows %}
-    {% do log('dropping retired ' ~ row[1] ~ ' main.' ~ row[0], info=True) %}
-    {% do run_query('DROP ' ~ row[1] ~ ' IF EXISTS main."' ~ row[0] ~ '"') %}
+    {% set qualified = '"' ~ row[0] ~ '".main."' ~ row[1] ~ '"' %}
+    {% do log('dropping retired ' ~ row[2] ~ ' ' ~ qualified, info=True) %}
+    {% do run_query('DROP ' ~ row[2] ~ ' IF EXISTS ' ~ qualified) %}
   {% endfor %}
 {% endmacro %}
